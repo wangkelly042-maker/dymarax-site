@@ -157,7 +157,40 @@
     }
 
     @media (max-width: 600px) {
-      main { padding-top: 26px; }
+      body {
+
+        display: block;
+
+        overflow-y: auto;
+
+      }
+
+      main {
+
+        width: min(880px, 88vw);
+
+        margin: 0 auto;
+
+        min-height: 100svh;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        padding: 26px 20px 36px;
+
+      }
+
+      footer {
+
+        position: static;
+
+        padding-bottom: 20px;
+
+      }
+      
       .emblem { width: min(215px, 47vw); margin-bottom: 8px; }
       .brand { margin-bottom: 30px; }
       .brand-text { font-size: clamp(2.8rem, 8.8vw, 4.0rem); }
@@ -179,6 +212,6 @@
     <p class="soon">Coming Soon</p>
     <a class="contact-link" href="/contact.html">Contact us</a>
   </main>
-  <footer>© 2026 DymaraX</footer>
+  <footer><a href="/about/">About</a> · © 2026 DymaraX</footer>
 </body>
 </html>
