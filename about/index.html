@@ -1,1 +1,178 @@
-x
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="About DymaraX, a customer journey strategy and operating systems company.">
+  <title>About | DymaraX</title>
+  <style>
+    :root{--navy:#03152d;--teal:#18d7dc;--white:#f7fbff;--muted:#a8bdd0;--line:rgba(24,215,220,.18);--panel:rgba(255,255,255,.035)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    html,body{margin:0;min-height:100%}
+    body{min-height:100svh;overflow-x:hidden;color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 82% 10%,rgba(24,215,220,.12),transparent 24%),radial-gradient(circle at 8% 72%,rgba(20,92,148,.16),transparent 32%),linear-gradient(135deg,var(--navy),#020b18 70%);line-height:1.72}
+    body:before,body:after{content:"";position:fixed;width:70vw;height:70vw;border:1px solid rgba(24,215,220,.10);border-radius:50%;transform:rotate(-18deg);pointer-events:none;z-index:0}
+    body:before{right:-45vw;bottom:-49vw}
+    body:after{left:-54vw;top:-58vw}
+    a{color:inherit}
+    .shell{position:relative;z-index:1;width:min(1160px,90vw);margin:0 auto}
+    header{position:relative;z-index:2;padding:26px 0 8px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:12px 0 18px;border-bottom:1px solid rgba(168,189,208,.13)}
+    .brand-link{display:inline-flex;align-items:center;gap:11px;text-decoration:none;min-width:0}
+    .brand-mark{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 8px 20px rgba(0,0,0,.22))}
+    .brand-name{font-size:1.08rem;font-weight:780;letter-spacing:-.02em}
+    .nav-links{display:flex;align-items:center;gap:26px}
+    .nav-links a{text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:600;transition:color .2s ease}
+    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--white)}
+    main{padding:72px 0 96px}
+    .intro{max-width:920px;padding:24px 0 78px}
+    .eyebrow{margin:0 0 22px;font-size:.76rem;letter-spacing:.26em;text-transform:uppercase;color:var(--teal);font-weight:750}
+    .intro h1{margin:0 0 34px}
+    .intro p{margin:0 0 24px;max-width:860px;font-size:clamp(1.12rem,2vw,1.38rem);line-height:1.62;color:#e7f0f8;letter-spacing:-.012em}
+    .intro p:last-child{margin-bottom:0;color:var(--white);font-weight:650}
+    .section{padding:78px 0;border-top:1px solid rgba(168,189,208,.13)}
+    .section-grid{display:grid;grid-template-columns:minmax(180px,280px) minmax(0,1fr);gap:clamp(42px,8vw,110px);align-items:start}
+    h1,h2,h3,p{overflow-wrap:anywhere}
+    h1,h2{margin:0;letter-spacing:-.04em;line-height:1}
+    h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:780}
+    h2{font-size:clamp(2rem,4vw,3.35rem);font-weight:760}
+    .section-label{position:sticky;top:28px}
+    .section-label .rule{width:48px;height:2px;margin-top:22px;background:linear-gradient(90deg,var(--teal),transparent)}
+    .copy{max-width:760px}
+    .copy p{margin:0 0 22px;color:var(--muted);font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.8}
+    .copy p:last-child{margin-bottom:0}
+    .copy .lead{color:#e8f2fa;font-size:clamp(1.12rem,1.7vw,1.28rem)}
+    .belief-close{margin-top:40px;padding:28px 0 0;border-top:1px solid var(--line);color:var(--white)!important;font-size:clamp(1.18rem,1.9vw,1.42rem)!important;font-weight:700;line-height:1.55!important}
+    .work-intro{max-width:820px;margin:0 0 54px;color:var(--muted);font-size:clamp(1.05rem,1.5vw,1.18rem);line-height:1.8}
+    .pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}
+    .pillar{padding:26px 0 0;border-top:2px solid var(--line)}
+    .pillar-num{display:block;margin-bottom:18px;color:var(--teal);font-size:.76rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .pillar h3{margin:0 0 16px;font-size:clamp(1.28rem,2vw,1.58rem);line-height:1.2;letter-spacing:-.025em}
+    .pillar p{margin:0;color:var(--muted);font-size:1rem;line-height:1.72}
+    footer{position:relative;z-index:1;border-top:1px solid rgba(168,189,208,.13);padding:30px 0 38px;color:rgba(168,189,208,.65);font-size:.78rem}
+    .footer-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .footer-row a{text-decoration:none;color:rgba(168,189,208,.78)}
+    @media(max-width:820px){
+      .shell{width:min(92vw,760px)}
+      main{padding-top:54px;padding-bottom:72px}
+      .intro{padding-bottom:58px}
+      .section{padding:58px 0}
+      .section-grid{grid-template-columns:1fr;gap:30px}
+      .section-label{position:static}
+      .pillars{grid-template-columns:1fr;gap:34px}
+      .pillar{padding-top:22px}
+    }
+    @media(max-width:560px){
+      header{padding-top:16px}
+      .nav{padding-bottom:14px}
+      .brand-mark{width:38px;height:38px}
+      .brand-name{font-size:1rem}
+      .nav-links{gap:18px}
+      .nav-links a{font-size:.86rem}
+      main{padding-top:42px}
+      .intro{padding:10px 0 48px}
+      .intro h1{margin-bottom:30px}
+      .intro p{margin-bottom:30px;font-size:1.04rem;line-height:1.72}
+      .section{padding:52px 0}
+      .copy p{margin-bottom:30px;font-size:1rem;line-height:1.78}
+      .copy .lead{line-height:1.72}
+      .belief-close{margin-top:50px;padding-top:34px}
+      .copy p.belief-close{margin-bottom:12px}
+      .work-intro{margin-bottom:42px}
+      .footer-row{align-items:flex-start;flex-direction:column;gap:10px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a class="brand-link" href="/" aria-label="DymaraX home">
+        <img class="brand-mark" src="../emblem.png" alt="DymaraX logo">
+        <span class="brand-name">DymaraX</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about" aria-current="page">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro" aria-labelledby="about-title">
+      <p class="eyebrow">DymaraX</p>
+      <h1 id="about-title">About DymaraX</h1>
+      <p>Customer feedback often reveals more than a single disappointing moment. It can expose a break in the larger journey: a missed handoff, a delayed response, an inconsistent promise, or a gap between teams, systems, and decisions.</p>
+      <p>Many organizations are equipped to respond to the immediate issue. A team member steps in, the customer receives a response, and the situation is resolved. What matters next is whether the organization understands what created the breakdown in the first place and whether anything changes because of it.</p>
+      <p>DymaraX looks beyond the individual complaint to the system surrounding it.</p>
+      <p>Organizations often manage the customer journey through fragmented systems, teams, and decisions. Customers experience it as one.</p>
+      <p>DymaraX connects the two, creating a more seamless experience and building the continuity that keeps customers moving toward value, retention, and growth.</p>
+    </section>
+
+    <section class="section" aria-labelledby="who-we-are">
+      <div class="section-grid">
+        <div class="section-label">
+          <h2 id="who-we-are">Who We Are</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="copy">
+          <p class="lead">DymaraX is a customer journey strategy and operating systems company built around a simple belief: better customer experiences are rarely created by one team, one tool, or one moment. They are created by the way an organization works together across the full journey.</p>
+          <p>We examine how strategy, operations, customer experience, and execution work together, and where that connection begins to break down.</p>
+          <p>Our work is designed to help organizations see the journey as a connected system, strengthen the moments that shape customer progress, and create the internal alignment needed to carry value from the first interaction through retention, growth, and advocacy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="what-we-believe">
+      <div class="section-grid">
+        <div class="section-label">
+          <h2 id="what-we-believe">What We Believe</h2>
+          <div class="rule"></div>
+        </div>
+        <div class="copy">
+          <p class="lead">We believe the customer journey is continuous.</p>
+          <p>Customers do not experience an organization as separate departments, systems, or workflows. They experience one relationship, shaped by every interaction, transition, decision, and promise that comes before and after the purchase.</p>
+          <p>We also believe customer expectations are evolving.</p>
+          <p>Customers increasingly expect more than responsive service. They expect consistency, accountability, transparency, and partnership. They are paying closer attention not only to what an organization delivers, but to how well the entire experience holds together.</p>
+          <p>To us, this is the natural progression of customer-first thinking.</p>
+          <p>Customer-first challenged organizations to listen more closely, understand customer needs, and place the customer at the center of decision-making.</p>
+          <p>The next evolution is building the organization so that strategy, operations, experience, and execution can support that customer continuously, not only at individual touchpoints, but across the full journey.</p>
+          <p>That belief shapes how we work.</p>
+          <p>We believe customer friction often becomes visible only after an internal break has already occurred.</p>
+          <p>We believe ownership should follow the journey rather than stop at departmental boundaries.</p>
+          <p>We believe progress matters more than activity, and that meaningful insight should lead to action, learning, and continuous improvement.</p>
+          <p class="belief-close">Because a strong customer journey is not created by one exceptional moment. It is created by continuity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="how-we-work">
+      <div class="section-label" style="margin-bottom:34px;position:static">
+        <h2 id="how-we-work">How We Work</h2>
+        <div class="rule"></div>
+      </div>
+      <p class="work-intro">DymaraX uses a three-pillar operating approach designed to help organizations understand the customer journey as it actually exists, uncover where continuity is breaking, and turn those insights into meaningful operational change.</p>
+      <div class="pillars">
+        <article class="pillar">
+          <h3><span class="pillar-num">1.</span>See the Journey</h3>
+          <p>We look across the full customer journey to understand how customers move, where friction appears, where progress slows, and where internal complexity begins to affect the experience.</p>
+        </article>
+        <article class="pillar">
+          <h3><span class="pillar-num">2.</span>Connect the System</h3>
+          <p>We examine how strategy, operations, customer experience, and execution work together, then identify where stronger alignment, clearer ownership, and better handoffs can create greater continuity.</p>
+        </article>
+        <article class="pillar">
+          <h3><span class="pillar-num">3.</span>Build for Movement</h3>
+          <p>We turn insight into action by helping organizations strengthen the processes, decisions, and feedback loops that keep customers moving toward value, retention, growth, and advocacy.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 DymaraX</span>
+      <a href="/">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
