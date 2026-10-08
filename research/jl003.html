@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Journey Lab 003: controlled synthetic methodology testing of the DymaraX Analytical Framework v1.2 and its progression to v1.3.">
+<title>Journey Lab 003 | DymaraX Research</title>
+
+<style>
+:root {
+  --navy:#03152d;
+  --cyan:#078ca4;
+  --cream:#f7f4ed;
+  --ink:#34465a;
+  --muted:#617085;
+  --line:#d9d9d3;
+}
+
+* { box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--navy);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.75;
+}
+
+a { color:inherit; }
+
+.container {
+  width:min(1100px,calc(100% - 48px));
+  margin:auto;
+}
+
+header {
+  background:var(--cream);
+  border-bottom:1px solid var(--line);
+}
+
+.nav {
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+
+.brand {
+  font-family:Georgia,serif;
+  font-size:29px;
+  font-weight:bold;
+  letter-spacing:-1px;
+  text-decoration:none;
+}
+
+.brand span { color:var(--cyan); }
+
+.nav-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:24px;
+}
+
+.nav-links a {
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color:var(--cyan);
+}
+
+.hero {
+  max-width:900px;
+  padding:90px 0 85px;
+}
+
+.back-link {
+  display:inline-block;
+  color:var(--cyan);
+  font-size:13px;
+  font-weight:bold;
+  text-decoration:none;
+  margin-bottom:35px;
+}
+
+.back-link:hover { text-decoration:underline; }
+
+.eyebrow {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+h1,h2,h3 {
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:normal;
+  line-height:1.17;
+}
+
+h1 {
+  font-size:clamp(46px,7vw,78px);
+  letter-spacing:-2px;
+  margin:22px 0 28px;
+}
+
+h2 {
+  font-size:clamp(34px,4vw,49px);
+  margin:14px 0 25px;
+}
+
+h3 {
+  font-size:27px;
+  margin:12px 0 15px;
+}
+
+p {
+  color:var(--ink);
+  font-size:16px;
+  max-width:790px;
+}
+
+.lead {
+  font-size:20px;
+  line-height:1.8;
+}
+
+.meta-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-top:45px;
+}
+
+.meta-item { padding:22px 18px 22px 0; }
+
+.meta-label {
+  color:var(--muted);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+}
+
+.meta-value {
+  font-size:15px;
+  font-weight:bold;
+  margin-top:5px;
+}
+
+section { padding:75px 0; }
+
+.narrow { max-width:820px; }
+
+.rule { border-top:1px solid var(--line); }
+
+.findings {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  margin-top:40px;
+}
+
+.finding {
+  background:#fffefa;
+  border:1px solid var(--line);
+  padding:30px;
+}
+
+.finding-number {
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:1.5px;
+}
+
+.finding p { font-size:15px; }
+
+.dark-section {
+  background:var(--navy);
+  color:white;
+}
+
+.dark-section p { color:#d0dce5; }
+
+.dark-section .eyebrow { color:#18d7dc; }
+
+.comparison {
+  border-left:3px solid #18d7dc;
+  padding-left:25px;
+  margin-top:35px;
+}
+
+.comparison p { font-size:19px; }
+
+.timeline {
+  margin-top:40px;
+  border-left:2px solid var(--line);
+  padding-left:30px;
+}
+
+.timeline-item {
+  position:relative;
+  margin-bottom:35px;
+}
+
+.timeline-item::before {
+  content:"";
+  position:absolute;
+  left:-37px;
+  top:9px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--cyan);
+}
+
+.timeline-item p { margin-top:5px; }
+
+.boundary {
+  background:#fffefa;
+  border:1px solid var(--line);
+  padding:35px;
+  margin-top:35px;
+}
+
+.boundary strong { color:var(--navy); }
+
+.next {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  border-top:1px solid var(--line);
+  padding:35px 0;
+}
+
+.next a {
+  color:var(--cyan);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.next a:hover { text-decoration:underline; }
+
+footer {
+  border-top:1px solid var(--line);
+  padding:35px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.footer-inner {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+@media(max-width:800px) {
+  .nav {
+    flex-direction:column;
+    align-items:flex-start;
+    padding:20px 0;
+  }
+
+  .nav-links { gap:14px 20px; }
+
+  .hero { padding:65px 0; }
+
+  section { padding:55px 0; }
+
+  .meta-grid,.findings {
+    grid-template-columns:1fr;
+  }
+
+  .meta-item { padding:12px 0; }
+
+  .next {
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav container" aria-label="Main navigation">
+    <a class="brand" href="/">Dymara<span>X</span></a>
+
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/mission.html">Mission</a>
+      <a href="/research/" aria-current="page">Research &amp; Development</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<div class="container">
+  <div class="hero">
+
+    <a class="back-link" href="/research/">
+      &larr; Back to Research &amp; Development
+    </a>
+
+    <div class="eyebrow">
+      DymaraX / Research &amp; Development / 003
+    </div>
+
+    <h1>Journey Lab 003:<br>Testing the Boundaries</h1>
+
+    <p class="lead">
+      The third controlled synthetic experiment examined
+      whether the DymaraX Analytical Framework v1.2
+      could maintain evidence discipline, analytical
+      consistency, and appropriate classification
+      boundaries under another adversarial test.
+    </p>
+
+    <p>
+      Journey Lab 003 continued the same central
+      research principle: the methodology must remain
+      open to failure, disagreement, and correction.
+      A favorable result was never guaranteed.
+    </p>
+
+    <div class="meta-grid">
+      <div class="meta-item">
+        <div class="meta-label">Framework Tested</div>
+        <div class="meta-value">Version 1.2</div>
+      </div>
+
+      <div class="meta-item">
+        <div class="meta-label">Experimental Setting</div>
+        <div class="meta-value">
+          Northstar Conference &amp; Event Group
+        </div>
+      </div>
+
+      <div class="meta-item">
+        <div class="meta-label">Research Status</div>
+        <div class="meta-value">
+          Completed / Developmental
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section class="rule">
+  <div class="container narrow">
+
+    <div class="eyebrow">01 / Research Question</div>
+
+    <h2>Can the Framework Withstand Another Challenge?</h2>
+
+    <p>
+      Journey Lab 002 identified classification
+      weaknesses that remained despite earlier
+      improvements to the framework.
+    </p>
+
+    <p>
+      Those findings informed four bounded
+      prospective methodology changes incorporated
+      into version 1.2.
+    </p>
+
+    <p>
+      Journey Lab 003 examined whether the revised
+      framework could distinguish meaningful
+      customer-journey conditions from ordinary
+      operational activity, ambiguous evidence,
+      and unsupported interpretations.
+    </p>
+
+    <p>
+      The experiment also tested whether independent
+      analysts applying the same frozen methodology
+      would reach sufficiently consistent,
+      evidence-supported conclusions.
+    </p>
+
+  </div>
+</section>
+
+<section class="rule">
+  <div class="container narrow">
+
+    <div class="eyebrow">02 / Experimental Approach</div>
+
+    <h2>A New Synthetic Organizational Environment.</h2>
+
+    <p>
+      Journey Lab 003 used Northstar Conference
+      &amp; Event Group, a fictional organization
+      created for controlled methodology development.
+    </p>
+
+    <p>
+      The synthetic evidence represented organizational
+      interactions, customer movement, internal
+      coordination, recovery activity, and conditions
+      with different degrees of evidentiary support.
+    </p>
+
+    <p>
+      The experiment followed a preregistered
+      design with a frozen analytical framework
+      and controlled evidence preparation.
+    </p>
+
+    <p>
+      An independent pre-analysis review identified
+      evidence-pack issues that required bounded
+      correction. The corrected evidence was
+      reviewed before release to blind analysts.
+    </p>
+
+    <p>
+      Two independent analysts then applied the
+      frozen v1.2 framework. A third analyst
+      conducted a conventional operational analysis
+      for comparison.
+    </p>
+
+    <p>
+      After the analyses were locked, a controlled
+      reveal examined the findings against the
+      private synthetic construction record,
+      distinguishing supported interpretations,
+      analyst errors, and methodology weaknesses.
+    </p>
+
+  </div>
+</section>
+
+<section class="rule">
+  <div class="container">
+
+    <div class="eyebrow">03 / Experimental Findings</div>
+
+    <h2>What the Third Test Revealed.</h2>
+
+    <div class="findings">
+
+      <article class="finding">
+        <div class="finding-number">FINDING 01</div>
+
+        <h3>Agreement Was Not the Same as Correctness.</h3>
+
+        <p>
+          The controlled evaluation examined
+          analyst agreement separately from
+          whether individual classifications
+          were supported by the evidence.
+        </p>
+
+        <p>
+          This distinction remained essential:
+          a shared interpretation could still
+          be incorrect, while a disagreement
+          could reveal a legitimate ambiguity
+          in the methodology.
+        </p>
+      </article>
+
+      <article class="finding">
+        <div class="finding-number">FINDING 02</div>
+
+        <h3>Classification Boundaries Required Further Precision.</h3>
+
+        <p>
+          The experiment identified additional
+          areas where the framework's existing
+          instructions did not fully constrain
+          analytical interpretation.
+        </p>
+
+        <p>
+          These weaknesses informed targeted
+          prospective changes rather than
+          retrospective alteration of the
+          original findings.
+        </p>
+      </article>
+
+      <article class="finding">
+        <div class="finding-number">FINDING 03</div>
+
+        <h3>Evidence Fidelity Remained a Separate Test.</h3>
+
+        <p>
+          The controlled reveal distinguished
+          whether analysts followed the framework
+          from whether their conclusions
+          accurately represented the available
+          evidence and construction facts.
+        </p>
+
+        <p>
+          Methodology compliance alone was not
+          treated as proof of analytical accuracy.
+        </p>
+      </article>
+
+      <article class="finding">
+        <div class="finding-number">FINDING 04</div>
+
+        <h3>The Framework Was Not Yet Ready for Validation Claims.</h3>
+
+        <p>
+          The third experiment supplied further
+          developmental evidence, including
+          weaknesses that justified revision.
+        </p>
+
+        <p>
+          It did not establish performance
+          in real organizations, predictive
+          capability, financial benefit,
+          or superiority over other methods.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="container narrow">
+
+    <div class="eyebrow">04 / Comparative Evaluation</div>
+
+    <h2>Three Analyses. Different Questions.</h2>
+
+    <p class="lead">
+      The comparison was designed to evaluate
+      reproducibility, evidentiary correctness,
+      and the framework's incremental analytical
+      contribution as separate matters.
+    </p>
+
+    <p>
+      The two framework analysts provided a basis
+      for examining how consistently v1.2
+      could be applied.
+    </p>
+
+    <p>
+      The conventional analysis offered a separate
+      perspective on the underlying organizational
+      phenomena without requiring the DymaraX
+      classification structure.
+    </p>
+
+    <div class="comparison">
+      <p>
+        Identifying a problem, classifying it
+        consistently, and explaining it accurately
+        are related achievements, but they are
+        not interchangeable.
+      </p>
+    </div>
+
+    <p>
+      Journey Lab 003 did not establish that
+      DymaraX uniquely detected organizational
+      problems or outperformed conventional
+      operational analysis.
+    </p>
+
+  </div>
+</section>
+
+<section>
+  <div class="container narrow">
+
+    <div class="eyebrow">05 / Methodology Development</div>
+
+    <h2>From v1.2 to a Controlled v1.3 Freeze.</h2>
+
+    <p>
+      The post-reveal review identified a bounded
+      set of prospective methodology changes.
+      The historical v1.2 experiment was not
+      reopened or rewritten to accommodate them.
+    </p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Frozen Framework: v1.2</h3>
+
+        <p>
+          Journey Lab 003 began with the
+          prospectively frozen version 1.2
+          methodology and a separately
+          controlled experimental design.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Blind Analysis and Controlled Reveal</h3>
+
+        <p>
+          Independent analyst reports were
+          locked before the private construction
+          facts were revealed and comparative
+          evaluation was performed.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Three Bounded Changes Authorized</h3>
+
+        <p>
+          The post-reveal disposition authorized
+          three targeted prospective changes,
+          designated JL003-M012, JL003-M013,
+          and JL003-M014.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Controlled v1.3 Implementation</h3>
+
+        <p>
+          The authorized changes were incorporated
+          into a candidate v1.3 methodology.
+          An independent implementation-conformance
+          audit reviewed the candidate against
+          its change authorization.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Prospective v1.3 Freeze</h3>
+
+        <p>
+          Following a passing implementation
+          audit, the controlled v1.3 framework
+          was authorized for prospective freeze.
+          This did not retroactively change
+          the results of Journey Lab 003.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="rule">
+  <div class="container narrow">
+
+    <div class="eyebrow">06 / Research Boundaries</div>
+
+    <h2>What Journey Lab 003 Does Not Establish.</h2>
+
+    <p>
+      The evidence used in this experiment
+      was synthetic. The controlled construction
+      enabled targeted methodological challenges,
+      but it does not substitute for observations
+      from independent real-world organizations.
+    </p>
+
+    <div class="boundary">
+
+      <strong>Not Established:</strong>
+
+      <p>
+        Scientific validation, external validity,
+        real-world reliability, predictive
+        accuracy, unique problem detection,
+        comparative superiority, operational
+        effectiveness, financial impact,
+        or return on investment.
+      </p>
+
+      <strong>Supported Developmental Conclusions:</strong>
+
+      <p>
+        Journey Lab 003 provides a controlled
+        record of how framework v1.2 behaved
+        under another synthetic test, how its
+        analyst findings were evaluated,
+        and why three bounded prospective
+        methodology changes were authorized.
+      </p>
+
+    </div>
+
+    <p>
+      The underlying construction materials,
+      detailed analytical rules, and private
+      experimental records are not reproduced
+      in this public research summary.
+    </p>
+
+  </div>
+</section>
+
+<section class="rule">
+  <div class="container narrow">
+
+    <div class="eyebrow">07 / Final Disposition</div>
+
+    <h2>A Stronger Process Still Requires Proof.</h2>
+
+    <p class="lead">
+      Journey Lab 003 completed another controlled
+      methodology-development cycle and produced
+      a documented basis for the prospective
+      v1.3 framework.
+    </p>
+
+    <p>
+      The result is a more extensively tested
+      developmental methodology, not a
+      validated organizational diagnostic.
+    </p>
+
+    <p>
+      The next standard of evidence is different:
+      prospective testing against independent
+      real-world organizational data, with
+      predefined evaluation criteria and
+      transparent reporting of both successful
+      and unsuccessful results.
+    </p>
+
+    <p>
+      DymaraX's research commitment remains
+      unchanged. The framework must continue
+      earning the right to remain.
+    </p>
+
+  </div>
+</section>
+
+<div class="container">
+  <div class="next">
+
+    <a href="/research/jl002.html">
+      &larr; Journey Lab 002
+    </a>
+
+    <a href="/research/">
+      Research &amp; Development &rarr;
+    </a>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>&copy; 2026 DymaraX. All rights reserved.</span>
+    <span>
+      Research status: Developmental and unvalidated.
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
