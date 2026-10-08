@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore DymaraX Research & Development, including three controlled synthetic Journey Labs and the evolution of the DymaraX Analytical Framework.">
+  <title>Research & Development | DymaraX</title>
+  <style>
+    :root {
+      --navy: #03152d;
+      --cyan: #078ca4;
+      --cream: #f7f4ed;
+      --ink: #34465a;
+      --muted: #617085;
+      --line: #d9d9d3;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--navy);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1100px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--cream);
+    }
+
+    .nav {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 29px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      text-decoration: none;
+    }
+
+    .brand span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--cyan);
+    }
+
+    .hero {
+      padding: 112px 0 95px;
+      max-width: 880px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: normal;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(46px, 7vw, 83px);
+      letter-spacing: -2px;
+      margin: 24px 0 30px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 4vw, 52px);
+      margin: 15px 0 25px;
+    }
+
+    h3 {
+      font-size: 33px;
+      margin: 12px 0 18px;
+    }
+
+    p {
+      color: var(--ink);
+      font-size: 16px;
+      max-width: 760px;
+    }
+
+    .lead {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .hero-note {
+      border-left: 3px solid var(--cyan);
+      padding-left: 22px;
+      margin-top: 42px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    section { padding: 75px 0; }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 45px;
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .lab-card {
+      background: #fffefa;
+      border: 1px solid var(--line);
+      padding: 34px 30px;
+      display: flex;
+      flex-direction: column;
+      min-height: 440px;
+    }
+
+    .lab-card .number {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+
+    .lab-card .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .lab-card p { font-size: 15px; }
+
+    .disposition {
+      margin-top: auto;
+      padding-top: 20px;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .lab-card .detail {
+      font-size: 13px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: white;
+    }
+
+    .dark-section p { color: #d0dce5; }
+
+    .dark-section .eyebrow { color: #18d7dc; }
+
+    .version {
+      font-family: Georgia, serif;
+      font-size: clamp(60px, 10vw, 115px);
+      line-height: 1;
+      margin: 25px 0;
+    }
+
+    .status {
+      display: inline-block;
+      border: 1px solid #477386;
+      border-radius: 30px;
+      padding: 8px 17px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .principles article {
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+    }
+
+    .principles h3 { font-size: 26px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 800px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 20px 0;
+      }
+
+      .nav-links { gap: 14px 20px; }
+
+      .hero { padding: 75px 0; }
+
+      section { padding: 55px 0; }
+
+      .lab-grid,
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .lab-card { min-height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav container" aria-label="Main navigation">
+    <a class="brand" href="/">Dymara<span>X</span></a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/mission.html">Mission</a>
+      <a href="/research/" aria-current="page">Research &amp; Development</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div class="container">
+    <div class="hero">
+      <div class="eyebrow">DymaraX / Research &amp; Development</div>
+      <h1>A framework should earn the right to remain.</h1>
+
+      <p class="lead">
+        DymaraX is developing an analytical framework to examine
+        the relationship between customer movement and the
+        organizational systems supporting it.
+      </p>
+
+      <p>
+        Our research begins with controlled synthetic experiments
+        designed to challenge the framework, expose analytical
+        weaknesses, and document what the evidence does and
+        does not support.
+      </p>
+
+      <div class="hero-note">
+        Three Journey Labs. Three successive framework versions tested.
+        An evolving research record.
+      </div>
+    </div>
+  </div>
+
+  <section id="journey-labs">
+    <div class="container">
+      <div class="section-heading">
+        <div class="eyebrow">The research record</div>
+        <h2>Three experiments. An evolving methodology.</h2>
+        <p>
+          Each Journey Lab tested a prospectively specified
+          framework version using synthetic organizational evidence,
+          independent analyses, and controlled comparison.
+          Findings were preserved rather than retroactively
+          rewritten to fit later revisions.
+        </p>
+      </div>
+
+      <div class="lab-grid">
+
+        <article class="lab-card">
+          <div class="number">01 / FOUNDATIONAL EXPERIMENT</div>
+          <h3>Journey Lab 001</h3>
+          <div class="meta">
+            Northstar Learning Solutions<br>
+            Framework v1.0
+          </div>
+          <p>
+            The initial experiment examined whether independent
+            analysts could apply the framework consistently while
+            distinguishing meaningful organizational conditions
+            from ordinary operating activity.
+          </p>
+          <p>
+            The findings supported continued development but
+            exposed weaknesses in materiality thresholds and
+            the treatment of adaptive work. Conventional
+            analysis identified most of the same phenomena.
+          </p>
+          <div class="disposition">
+            DISPOSITION: REVISE AND TEST AGAIN
+          </div>
+          <div class="detail">
+            Individual research page in preparation
+          </div>
+        </article>
+
+        <article class="lab-card">
+          <div class="number">02 / ADVERSARIAL REPLICATION</div>
+          <h3>Journey Lab 002</h3>
+          <div class="meta">
+            Asteron Equipment Systems<br>
+            Framework v1.1
+          </div>
+          <p>
+            The second experiment tested whether targeted
+            revisions improved analytical discrimination and
+            consistency in a different synthetic environment.
+          </p>
+          <p>
+            Several safeguards performed better, but analysts
+            disagreed about which organizational boundaries
+            merited registration. A shared false-positive
+            classification exposed another unresolved weakness.
+          </p>
+          <div class="disposition">
+            DISPOSITION: FURTHER BOUNDED REVISIONS
+          </div>
+          <div class="detail">
+            Individual research page in preparation
+          </div>
+        </article>
+
+        <article class="lab-card">
+          <div class="number">03 / REPRODUCIBILITY TESTING</div>
+          <h3>Journey Lab 003</h3>
+          <div class="meta">
+            Northstar Conference &amp; Event Group<br>
+            Framework v1.2
+          </div>
+          <p>
+            The third experiment challenged reproducibility,
+            evidence requirements, and classification boundaries
+            under another controlled synthetic test.
+          </p>
+          <p>
+            Several safeguards held, while consequential
+            disagreements remained around downstream
+            propagation, analytical relevance, and the
+            treatment of uncertain evidence.
+          </p>
+          <div class="disposition">
+            DISPOSITION: THREE CLARIFICATIONS AUTHORIZED
+          </div>
+          <div class="detail">
+            Individual research page in preparation
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="dark-section" id="current-status">
+    <div class="container">
+      <div class="eyebrow">Current framework status</div>
+      <div class="version">v1.3</div>
+      <div class="status">PROSPECTIVELY FROZEN</div>
+
+      <h2>Development continues.</h2>
+
+      <p class="lead">
+        DymaraX Analytical Framework v1.3 incorporates three
+        bounded clarifications arising from Journey Lab 003.
+        It passed independent implementation-conformance
+        review and was subsequently frozen for prospective use.
+      </p>
+
+      <p>
+        Journey Lab 003 tested v1.2, not v1.3.
+        The v1.3 freeze establishes version control and
+        implementation conformance. It does not establish
+        scientific validation, real-world reliability,
+        comparative superiority, business impact, or ROI.
+      </p>
+    </div>
+  </section>
+
+  <section id="research-principles">
+    <div class="container">
+      <div class="eyebrow">Research principles</div>
+      <h2>Evidence before conclusions.</h2>
+
+      <div class="principles">
+
+        <article>
+          <h3>Challenge the framework.</h3>
+          <p>
+            Experiments are designed to expose false positives,
+            false negatives, ambiguity, disagreement, and
+            weaknesses in analytical decision boundaries.
+          </p>
+        </article>
+
+        <article>
+          <h3>Preserve the historical record.</h3>
+          <p>
+            Later revisions do not rewrite earlier experimental
+            results. Each Journey Lab remains associated with
+            the methodology version originally tested.
+          </p>
+        </article>
+
+        <article>
+          <h3>Separate agreement from correctness.</h3>
+          <p>
+            Independent analysts can agree and still reach
+            an unsupported conclusion. Agreement is therefore
+            examined alongside evidence quality and
+            classification accuracy.
+          </p>
+        </article>
+
+        <article>
+          <h3>Respect the limits of the evidence.</h3>
+          <p>
+            Synthetic methodology-development experiments
+            cannot independently establish real-world
+            effectiveness, external validity, predictive
+            performance, or organizational return on investment.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>&copy; 2026 DymaraX. All rights reserved.</span>
+    <span>Research status: Developmental and unvalidated.</span>
+  </div>
+</footer>
+
+</body>
+</html>
