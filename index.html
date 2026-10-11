@@ -1,55 +1,324 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="DymaraX examines the organizational systems beneath the customer journey."><title>DymaraX | Customer Journey & Organizational Systems</title><style>
-:root{--n:#03152d;--t:#18d7dc;--w:#f8fbff;--m:#b7c7d5}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 10%,#18d7dc22,transparent 30%),linear-gradient(180deg,#03152d,#020b18);color:var(--w);font-family:Inter,system-ui,sans-serif;line-height:1.55}a{color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}header{position:sticky;top:0;z-index:10;background:#03152dcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;text-decoration:none;font-size:1.35rem;font-weight:800}.brand img{width:28px;margin-left:1px}nav{display:flex;gap:24px;align-items:center}nav a{text-decoration:none;font-size:.92rem;font-weight:650}.pill,.btn{border:1px solid #18d7dc88;border-radius:999px;padding:11px 17px;text-decoration:none;font-weight:750}.btn.primary{background:var(--t);color:#022129}.hero{padding:90px 0 82px;min-height:80vh;display:grid;align-items:center}.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:58px;align-items:center}.eyebrow{color:var(--t);text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:800;margin:0 0 18px}h1,h2{font-family:Georgia,serif;font-weight:500;letter-spacing:-.045em;line-height:.98}h1{font-size:clamp(3.2rem,7vw,6.7rem);margin:0 0 24px}h2{font-size:clamp(2.4rem,5vw,4.3rem);margin:0 0 18px}.lead{font-size:1.22rem;color:#c8d7e4;max-width:760px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.panel,.card,.status{border:1px solid #7debf02b;background:#ffffff0a;border-radius:24px}.panel{padding:32px}.panel img{width:min(210px,70%);margin:0 auto 24px}.panel .quote{font:1.5rem/1.25 Georgia,serif;margin:0 0 12px}.panel p{color:#c3d3df}section{padding:92px 0;border-top:1px solid #ffffff10}.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px}.bigquote{border-left:2px solid var(--t);padding-left:24px;font:clamp(1.8rem,4vw,3.1rem)/1.12 Georgia,serif}.copy{color:var(--m);font-size:1.08rem}.layers{display:grid;gap:10px;margin-top:24px}.layer{padding:16px 18px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff08}.layer strong{color:var(--t);margin-right:8px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:26px;min-height:230px}.card small{color:var(--t);font-weight:850;letter-spacing:.14em}.card h3{margin:40px 0 10px;font-size:1.4rem}.card p{color:var(--m);margin:0}.status{padding:30px;display:flex;justify-content:space-between;gap:24px;align-items:center}.status p{margin:6px 0 0;color:var(--m)}.tag{border:1px solid #18d7dc66;border-radius:999px;padding:9px 13px;color:var(--t);white-space:nowrap;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.cta{text-align:center}.cta p{max-width:700px;margin:0 auto 26px;color:var(--m)}footer{padding:30px 0;color:#91a7ba;border-top:1px solid #ffffff10}.foot{display:flex;justify-content:space-between;gap:20px}
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DymaraX examines the organizational systems beneath the customer journey.">
+<title>DymaraX | Customer Journey & Organizational Systems</title>
+<style>
+:root{--n:#03152d;--t:#18d7dc;--w:#f8fbff;--m:#b7c7d5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 85% 10%,#18d7dc22,transparent 30%),linear-gradient(180deg,#03152d,#020b18);color:var(--w);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+a{color:inherit}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:10;background:#03152dcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;text-decoration:none;font-size:1.35rem;font-weight:800}
+.brand img{width:28px;margin-left:1px}
+nav{display:flex;gap:24px;align-items:center}
+nav a{text-decoration:none;font-size:.92rem;font-weight:650}
+.pill,.btn{border:1px solid #18d7dc88;border-radius:999px;padding:11px 17px;text-decoration:none;font-weight:750}
+.btn.primary{background:var(--t);color:#022129}
+.hero{padding:90px 0 82px;min-height:80vh;display:grid;align-items:center}
+.grid{display:grid;grid-template-columns:1.25fr .75fr;gap:58px;align-items:center}
+.eyebrow{color:var(--t);text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:800;margin:0 0 18px}
+h1,h2{font-family:Georgia,serif;font-weight:500;letter-spacing:-.045em;line-height:.98}
+h1{font-size:clamp(3.2rem,7vw,6.7rem);margin:0 0 24px}
+h2{font-size:clamp(2.4rem,5vw,4.3rem);margin:0 0 18px}
+.lead{font-size:1.22rem;color:#c8d7e4;max-width:760px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.panel,.card,.status{border:1px solid #7debf02b;background:#ffffff0a;border-radius:24px}
+.panel{padding:32px}
+.panel img{width:min(210px,70%);margin:0 auto 24px}
+.panel .quote{font:1.5rem/1.25 Georgia,serif;margin:0 0 12px}
+.panel p{color:#c3d3df}
+section{padding:92px 0;border-top:1px solid #ffffff10}
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:54px}
+.bigquote{border-left:2px solid var(--t);padding-left:24px;font:clamp(1.8rem,4vw,3.1rem)/1.12 Georgia,serif}
+.copy{color:var(--m);font-size:1.08rem}
+.layers{display:grid;gap:10px;margin-top:24px}
+.layer{padding:16px 18px;border:1px solid #ffffff12;border-radius:14px;background:#ffffff08}
+.layer strong{color:var(--t);margin-right:8px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{padding:26px;min-height:230px}
+.card small{color:var(--t);font-weight:850;letter-spacing:.14em}
+.card h3{margin:40px 0 10px;font-size:1.4rem}
+.card p{color:var(--m);margin:0}
+.status{padding:30px;display:flex;justify-content:space-between;gap:24px;align-items:center}
+.status p{margin:6px 0 0;color:var(--m)}
+.tag{border:1px solid #18d7dc66;border-radius:999px;padding:9px 13px;color:var(--t);white-space:nowrap;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.cta{text-align:center}
+.cta p{max-width:700px;margin:0 auto 26px;color:var(--m)}
+footer{padding:30px 0;color:#91a7ba;border-top:1px solid #ffffff10}
+.foot{display:flex;justify-content:space-between;gap:20px}
 .site-menu{position:relative}
 .site-menu>button{font:inherit;color:inherit;background:transparent;cursor:pointer}
 .site-menu-panel{
-  position:absolute;right:0;top:calc(100% + 12px);min-width:190px;padding:10px;
-  border:1px solid #18d7dc55;border-radius:18px;background:#041a35f2;
-  box-shadow:0 18px 48px #00000055;backdrop-filter:blur(16px);
-  opacity:0;visibility:hidden;transform:translateY(-6px);
+  position:absolute;
+  right:0;
+  top:calc(100% + 12px);
+  min-width:190px;
+  padding:10px;
+  border:1px solid #18d7dc55;
+  border-radius:18px;
+  background:#041a35f2;
+  box-shadow:0 18px 48px #00000055;
+  backdrop-filter:blur(16px);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(-6px);
   transition:opacity .16s ease,transform .16s ease,visibility .16s ease
 }
-.site-menu.open .site-menu-panel{opacity:1;visibility:visible;transform:translateY(0)}
-.site-menu-panel a{
-  display:block;padding:12px 14px;border-radius:12px;text-decoration:none;
-  color:#e9f4fb;font-size:.95rem;font-weight:700
+.site-menu.open .site-menu-panel{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0)
 }
-.site-menu-panel a:hover,.site-menu-panel a:focus-visible{background:#18d7dc16;color:var(--t);outline:none}
-.site-menu-panel .coming{color:#89a0b3;font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px 4px}
-@media(max-width:850px){.grid,.split,.cards{grid-template-columns:1fr}.status{align-items:flex-start;flex-direction:column}.hero{min-height:auto}nav>a{display:none}}@media(max-width:600px){.wrap{width:min(100% - 26px,1120px)}section{padding:72px 0}.hero{padding:64px 0}.panel,.card,.status{padding:22px}}
-</style><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)}</script><script defer src="/_vercel/insights/script.js"></script>
+.site-menu-panel a{
+  display:block;
+  padding:12px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#e9f4fb;
+  font-size:.95rem;
+  font-weight:700
+}
+.site-menu-panel a:hover,.site-menu-panel a:focus-visible{
+  background:#18d7dc16;
+  color:var(--t);
+  outline:none
+}
+.site-menu-panel .coming{
+  color:#89a0b3;
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:8px 14px 4px
+}
+@media(max-width:850px){
+  .grid,.split,.cards{grid-template-columns:1fr}
+  .status{align-items:flex-start;flex-direction:column}
+  .hero{min-height:auto}
+  nav>a{display:none}
+}
+@media(max-width:600px){
+  .wrap{width:min(100% - 26px,1120px)}
+  section{padding:72px 0}
+  .hero{padding:64px 0}
+  .panel,.card,.status{padding:22px}
+}
+</style>
+
+<script>
+window.va=window.va||function(){
+  (window.vaq=window.vaq||[]).push(arguments)
+}
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "yuos4co049");
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){
+    (c[a].q=c[a].q||[]).push(arguments)
+  };
+  t=l.createElement(r);
+  t.async=1;
+  t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];
+  y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yuos4co049");
 </script>
 </head>
-  <body>
-<header><div class="wrap nav"><a class="brand" href="/">Dymara<img src="/x.png" alt="X"></a><nav>
-<a href="#approach">Approach</a>
-<a href="#methodology">Methodology</a>
-<div class="site-menu">
-  <button class="pill" type="button" aria-haspopup="true" aria-expanded="false">Explore</button>
-  <div class="site-menu-panel" role="menu">
-    <a role="menuitem" href="/about/">About</a>
-    <a role="menuitem" href="/mission/">Mission</a>
-    <a role="menuitem" href="/contact.html">Contact</a>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      Dymara<img src="/x.png" alt="X">
+    </a>
+    <nav>
+      <a href="#approach">Approach</a>
+      <a href="#methodology">Methodology</a>
+
+      <div class="site-menu">
+        <button class="pill" type="button" aria-haspopup="true" aria-expanded="false">
+          Explore
+        </button>
+
+        <div class="site-menu-panel" role="menu">
+          <a role="menuitem" href="/about/">About</a>
+          <a role="menuitem" href="/mission/">Mission</a>
+          <a role="menuitem" href="/research/">Research</a>
+          <a role="menuitem" href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </nav>
   </div>
-</div>
-</nav></div></header>
+</header>
 
 <main>
-<section class="hero"><div class="wrap grid"><div><p class="eyebrow">Customer journey · Organizational systems</p><h1>The customer experiences one journey.</h1><p class="lead"><strong>The organization should be built to support it.</strong> DymaraX examines what happens beneath the visible customer experience, where people, process, technology, information, and authority either enable movement or quietly interrupt it.</p><div class="actions"><a class="btn primary" href="#approach">See the approach</a><a class="btn" href="/contact.html">Start a conversation</a></div></div><aside class="panel"><img src="/emblem.png" alt="DymaraX emblem"><p class="quote">The outcome happened. That doesn’t necessarily mean the system worked.</p><p>DymaraX looks underneath the result to understand how the journey actually moved, and what the organization had to do to keep it moving.</p></aside></div></section>
 
-<section id="approach"><div class="wrap split"><div><p class="eyebrow">The layer beneath the journey</p><div class="bigquote">We map the digital plumbing beneath the customer journey.</div></div><div><p class="copy">A customer can reach the expected outcome while the organization absorbs friction, improvises around broken handoffs, duplicates work, or relies on invisible effort. Organizational activity is not necessarily customer movement.</p><div class="layers"><div class="layer"><strong>People</strong> Who carries the work, judgment, handoffs, and recovery.</div><div class="layer"><strong>Process</strong> How the journey is intended to move between stages and owners.</div><div class="layer"><strong>Technology</strong> The systems, integrations, and workarounds supporting movement.</div><div class="layer"><strong>Information</strong> What travels with the customer, and what gets lost or recreated.</div><div class="layer"><strong>Authority</strong> Where decisions can be made and movement restored.</div></div></div></div></section>
+<section class="hero">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow">Customer journey · Organizational systems</p>
+      <h1>The Customer Experiences One Journey.</h1>
 
-<section id="methodology"><div class="wrap"><p class="eyebrow">DymaraX methodology</p><h2>See the journey. See the system underneath it.</h2><p class="copy" style="max-width:780px;margin-bottom:42px">DymaraX is being developed as an evidence-disciplined analytical framework for examining customer movement and the organizational conditions that shape it.</p><div class="cards"><article class="card"><small>SEE IT</small><h3>Reconstruct the journey</h3><p>Separate actual customer movement from internal activity, assumptions, and retrospective explanations.</p></article><article class="card"><small>OWN IT</small><h3>Locate the system condition</h3><p>Trace the people, process, technology, information, and authority surrounding the point where movement changed.</p></article><article class="card"><small>CHANGE IT</small><h3>Design around movement</h3><p>Use the evidence to inform a more deliberate operating model instead of optimizing only for surface outcomes.</p></article></div></div></section>
+      <p class="lead">
+        <strong>The organization should be built to support it.</strong>
+        DymaraX examines what happens beneath the visible customer
+        experience, where people, process, technology, information,
+        and authority either enable movement or quietly interrupt it.
+      </p>
 
-<section><div class="wrap"><div class="status"><div><strong>Methodology development is active.</strong><p>DymaraX v1.3 has completed its current controlled implementation and prospective freeze cycle following three synthetic Journey Labs. The framework remains developmental and unvalidated while prospective and real-world testing continue.</p></div><span class="tag">Developmental framework</span></div></div></section>
+      <div class="actions">
+        <a class="btn primary" href="#approach">See the approach</a>
+        <a class="btn" href="/contact.html">Start a conversation</a>
+      </div>
+    </div>
 
-<section class="cta"><div class="wrap"><p class="eyebrow">Build around the journey</p><h2>Organizational activity is not necessarily customer movement.</h2><p>DymaraX is building a clearer way to see the difference and understand what the organization is asking people and systems to absorb when the journey stops moving cleanly.</p><a class="btn primary" href="/contact.html">Contact DymaraX</a></div></section>
+    <aside class="panel">
+      <img src="/emblem.png" alt="DymaraX emblem">
+      <p class="quote">
+        The outcome happened. That doesn’t necessarily mean the system worked.
+      </p>
+      <p>
+        DymaraX looks underneath the result to understand how the
+        journey actually moved, and what the organization had to
+        do to keep it moving.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">The layer beneath the journey</p>
+      <div class="bigquote">
+        We Map the Digital Plumbing Beneath the Customer Journey.
+      </div>
+    </div>
+
+    <div>
+      <p class="copy">
+        A customer can reach the expected outcome while the organization
+        absorbs friction, improvises around broken handoffs, duplicates
+        work, or relies on invisible effort. Organizational activity is
+        not necessarily customer movement.
+      </p>
+
+      <div class="layers">
+        <div class="layer">
+          <strong>People</strong>
+          Who carries the work, judgment, handoffs, and recovery.
+        </div>
+
+        <div class="layer">
+          <strong>Process</strong>
+          How the journey is intended to move between stages and owners.
+        </div>
+
+        <div class="layer">
+          <strong>Technology</strong>
+          The systems, integrations, and workarounds supporting movement.
+        </div>
+
+        <div class="layer">
+          <strong>Information</strong>
+          What travels with the customer, and what gets lost or recreated.
+        </div>
+
+        <div class="layer">
+          <strong>Authority</strong>
+          Where decisions can be made and movement restored.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="methodology">
+  <div class="wrap">
+    <p class="eyebrow">DymaraX methodology</p>
+
+    <h2>See the Journey. See the System Underneath It.</h2>
+
+    <p class="copy" style="max-width:780px;margin-bottom:42px">
+      DymaraX is being developed as an evidence-disciplined analytical
+      framework for examining customer movement and the organizational
+      conditions that shape it.
+    </p>
+
+    <div class="cards">
+      <article class="card">
+        <small>SEE IT</small>
+        <h3>Reconstruct the Journey</h3>
+        <p>
+          Separate actual customer movement from internal activity,
+          assumptions, and retrospective explanations.
+        </p>
+      </article>
+
+      <article class="card">
+        <small>OWN IT</small>
+        <h3>Locate the System Condition</h3>
+        <p>
+          Trace the people, process, technology, information,
+          and authority surrounding the point where movement changed.
+        </p>
+      </article>
+
+      <article class="card">
+        <small>CHANGE IT</small>
+        <h3>Design Around Movement</h3>
+        <p>
+          Use the evidence to inform a more deliberate operating
+          model instead of optimizing only for surface outcomes.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="status">
+      <div>
+        <strong>Methodology development is active.</strong>
+        <p>
+          DymaraX v1.3 has completed its current controlled
+          implementation and prospective freeze cycle following
+          three synthetic Journey Labs. The framework remains
+          developmental and unvalidated while prospective and
+          real-world testing continue.
+        </p>
+      </div>
+      <span class="tag">Developmental framework</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <p class="eyebrow">Build around the journey</p>
+
+    <h2>Organizational Activity Is Not Necessarily Customer Movement.</h2>
+
+    <p>
+      DymaraX is building a clearer way to see the difference
+      and understand what the organization is asking people and
+      systems to absorb when the journey stops moving cleanly.
+    </p>
+
+    <a class="btn primary" href="/contact.html">Contact DymaraX</a>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -68,15 +337,18 @@
   const menu=document.querySelector('.site-menu');
   const button=menu && menu.querySelector('button');
   if(!menu||!button)return;
+
   button.addEventListener('click',function(e){
     e.stopPropagation();
     const open=menu.classList.toggle('open');
     button.setAttribute('aria-expanded',open?'true':'false');
   });
+
   document.addEventListener('click',function(){
     menu.classList.remove('open');
     button.setAttribute('aria-expanded','false');
   });
+
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){
       menu.classList.remove('open');
@@ -86,4 +358,6 @@
   });
 })();
 </script>
-</body></html>
+
+</body>
+</html>
