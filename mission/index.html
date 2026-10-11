@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -89,7 +90,7 @@ a{color:inherit}
 }
 
 .navlinks > a:hover,
-.navlinks > a[aria-current="page"]{
+.navlinks > a:focus-visible{
   color:#fff;
   border-bottom-color:var(--cyan);
 }
@@ -114,7 +115,8 @@ a{color:inherit}
   font-weight:700;
 }
 
-.pill:hover{
+.pill:hover,
+.pill:focus-visible{
   background:rgba(8,201,232,.09);
 }
 
@@ -171,12 +173,13 @@ a{color:inherit}
 }
 
 .eyebrow{
-  margin:0 0 18px;
+  margin:0 0 22px;
   color:var(--cyan);
-  font-size:.76rem;
+  font-size:clamp(1rem,1.6vw,1.3rem);
   font-weight:800;
-  letter-spacing:.24em;
+  letter-spacing:.17em;
   text-transform:uppercase;
+  line-height:1.3;
 }
 
 h1,h2,h3,p{overflow-wrap:anywhere}
@@ -188,7 +191,7 @@ h1,h2{
 
 h1{
   font-size:clamp(2.9rem,5.7vw,5.25rem);
-  line-height:1.02;
+  line-height:1.06;
   margin:0;
 }
 
@@ -212,9 +215,9 @@ h2{
 .rule-top{border-top:1px solid var(--line)}
 
 .kicker{
-  font-size:.73rem;
+  font-size:.85rem;
   font-weight:800;
-  letter-spacing:.23em;
+  letter-spacing:.16em;
   text-transform:uppercase;
   color:var(--ink);
   margin:0 0 17px;
@@ -264,9 +267,10 @@ h2{
 
 .mission-pillar h3{
   margin:0 0 8px;
-  text-transform:uppercase;
-  letter-spacing:.13em;
-  font-size:.88rem;
+  text-transform:none;
+  letter-spacing:.01em;
+  font-size:1.18rem;
+  font-weight:750;
   color:var(--ink);
 }
 
@@ -397,40 +401,64 @@ h2{
 
 @media(max-width:620px){
   .nav{
-    align-items:flex-start;
+    align-items:center;
     flex-wrap:wrap;
     padding:14px 0 12px;
   }
+
   .brand{font-size:1.05rem}
   .brand img{width:40px;height:40px}
+
   .navlinks{
     order:3;
     width:100%;
     justify-content:space-between;
-    gap:7px;
+    gap:12px;
     border-top:1px solid rgba(255,255,255,.10);
     padding-top:7px;
   }
+
   .navlinks > a{
     padding:9px 2px 6px;
     border-bottom-width:2px;
     font-size:.76rem;
   }
+
   .pill{
     padding:8px 12px;
     font-size:.76rem;
   }
+
   .site-menu-panel{
     right:0;
     min-width:180px;
   }
+
   h1{font-size:clamp(2.55rem,12vw,4.1rem)}
   h2{font-size:clamp(2rem,9vw,3rem)}
   .hero .sub{font-size:1rem}
+
+  .eyebrow{
+    font-size:1rem;
+    letter-spacing:.13em;
+  }
+
   .footer-meta{
     flex-wrap:wrap;
     gap:12px 18px;
   }
+}
+
+@media(max-width:380px){
+  .navlinks{gap:6px}
+  .navlinks > a{font-size:.7rem}
+  .pill{font-size:.7rem;padding:7px 9px}
+}
+
+/* Reduced motion preference */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .site-menu-panel{transition:none}
 }
 </style>
 
@@ -458,12 +486,13 @@ h2{
     </a>
 
     <nav class="navlinks" aria-label="Primary navigation">
-      <a href="/">Home</a>
-      <a href="/about/">About</a>
-      <a href="/mission/" aria-current="page">Mission</a>
+      <a href="/#approach">Approach</a>
+      <a href="/#methodology">Methodology</a>
 
       <div class="site-menu">
-        <button class="pill" type="button"
+        <button
+          class="pill"
+          type="button"
           aria-haspopup="true"
           aria-expanded="false"
           aria-controls="explore-menu">
@@ -472,7 +501,7 @@ h2{
 
         <div class="site-menu-panel" id="explore-menu">
           <a href="/about/">About</a>
-          <a href="/mission/">Mission</a>
+          <a href="/mission/" aria-current="page">Mission</a>
           <a href="/research/">Research</a>
           <a href="/contact.html">Contact</a>
         </div>
@@ -489,9 +518,9 @@ h2{
     <p class="eyebrow">Our Mission</p>
 
     <h1>
-      The customer experiences one journey.<br>
+      The Customer Experiences One Journey.<br>
       <span class="cyan">
-        The organization should be built to support it.
+        The Organization Should Be Built to Support It.
       </span>
     </h1>
 
@@ -533,8 +562,8 @@ h2{
       <p class="kicker">The Challenge</p>
 
       <h2>
-        Organizations operate<br>
-        in pieces. <span class="cyan">Customers don’t.</span>
+        Organizations Operate<br>
+        in Pieces. <span class="cyan">Customers Don’t.</span>
       </h2>
 
       <div class="bodycopy">
@@ -555,8 +584,8 @@ h2{
       <p class="kicker">What We’re Building Toward</p>
 
       <h2>
-        One journey.<br>
-        <span class="cyan">One connected system.</span>
+        One Journey.<br>
+        <span class="cyan">One Connected System.</span>
       </h2>
 
       <div class="bodycopy">
@@ -611,23 +640,23 @@ h2{
 
   if(!menu||!button)return;
 
+  function setMenu(open){
+    menu.classList.toggle('open',open);
+    button.setAttribute('aria-expanded',open?'true':'false');
+  }
+
   button.addEventListener('click',function(e){
     e.stopPropagation();
-    const open=menu.classList.toggle('open');
-    button.setAttribute('aria-expanded',open?'true':'false');
+    setMenu(!menu.classList.contains('open'));
   });
 
   document.addEventListener('click',function(e){
-    if(!menu.contains(e.target)){
-      menu.classList.remove('open');
-      button.setAttribute('aria-expanded','false');
-    }
+    if(!menu.contains(e.target))setMenu(false);
   });
 
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-      menu.classList.remove('open');
-      button.setAttribute('aria-expanded','false');
+    if(e.key==='Escape' && menu.classList.contains('open')){
+      setMenu(false);
       button.focus();
     }
   });
