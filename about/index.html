@@ -260,9 +260,10 @@
       font-weight:760;
     }
 
+    /* Section headings no longer follow the page when scrolling */
+
     .section-label {
-      position:sticky;
-      top:28px;
+      position:static;
     }
 
     .section-label .rule {
@@ -472,6 +473,7 @@
       (window.vaq = window.vaq || []).push(arguments);
     };
   </script>
+
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
@@ -498,6 +500,7 @@
           <div class="site-menu-panel"
                id="explore-menu"
                role="menu">
+
             <a role="menuitem"
                href="/about/"
                aria-current="page">About</a>
